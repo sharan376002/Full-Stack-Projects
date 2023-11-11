@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calc_style.css">
+    <link rel="stylesheet" href="calc.js">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="calc">
+            <div class="header">
+                <div class="titles">
+
+                    г/Шаран
+                </div>
+            </div>
+            <div class="display">
+                <div class="display-indicate">
+                    max
+                </div>
+                <div class="display-main">
+                    0
+                </div>
+                <div class="display-operations">
+                    0
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="button ac" onclick="Clear()">AC</button>
+                <button class="button ce" onclick="del()"> CE</button>
+                <button class="button div"onclick="display('/')">/</button>
+                <button class="button mult" onclick="display('x')">X</button>
+
+            </div>
+
+            <div class="row">
+                <button class="button seven" onclick="display('7')">7</button>
+                <button class="button eight" onclick="display('8')">8</button>
+                <button class="button nine"  onclick="display('9')">9</button>
+                <button class="button minus" onclick="display('-')">-</button>
+
+            </div>
+            <div class="row">
+                <button class="button four"onclick="display('4')">4</button>
+                <button class="button five"onclick="display('5')">5</button>
+                <button class="button six"onclick="display('6')">6</button>
+                <button class="button plus"onclick="display('+')">+</button>
+            </div>
+
+            <div class="bottom-row">
+                <div class="left">
+                    <div class="row">
+                        <button class="button one"onclick="display('1')">1</button>
+                        <button class="button two"onclick="display('2')">2</button>
+                        <button class="button three"onclick="display('3')">3</button>
+
+                    </div>
+                    <div class="row">
+                        <button class="button zero"onclick="display('0')">0</button>
+                        <button class="button dot"onclick="display('.')">.</button>
+                    </div>
+                </div>
+                <div class="right">
+                    <button class="button equal" onclick="Calculate()">=</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let outputScreen = document.getElementById("output-screen");
+        function display(num){
+            outputScreen.value += num;
+        }
+        function Calculate(){
+            try{
+                outputScreen.value = eval(outputScreen.value);
+            }
+            catch(err){
+                alert("Invalid")
+            }
+        }
+        function Clear(){
+            outputScreen.value = "";
+        }
+        function del(){
+            outputScreen.value = outputScreen.value.slice(0,-1)
+        }
+        
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
